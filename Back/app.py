@@ -7,6 +7,7 @@ app = Flask(__name__)
 CORS(app)
 UPLOAD_FOLDER = "static/images"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
+BASE_URL = os.getenv("BASE_URL", "http://localhost:5000")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
@@ -80,7 +81,7 @@ def add_product():
         return jsonify({"error": "Database error, unable to store product."}), 500
 
     # Generate QR Code
-    product_url = f"http://localhost:5000/product/{product_id}"
+    product_url = f"{BASE_URL}/product/{product_id}"
     qr_img = qrcode.make(product_url)
     qr_path = f"qrcodes/product_{product_id}.png"
     qr_img.save(qr_path)
