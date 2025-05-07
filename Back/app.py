@@ -33,6 +33,10 @@ def init_db():
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+@app.route("/")
+def home():
+    return "Backend is running! Visit /products or use the API."
+
 @app.route("/add", methods=["POST"])
 def add_product():
     data = request.form
