@@ -13,7 +13,7 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/products");
+      const res = await axios.get("https://bamboo-uvai.onrender.com/products");
       setProducts(res.data);  // Update state with the fetched products
     } catch (err) {
       console.error("Failed to fetch products");
@@ -23,7 +23,7 @@ function App() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/products/${id}`);
+      await axios.delete(`https://bamboo-uvai.onrender.com/products/${id}`);
       setProducts(products.filter((product) => product.id !== id));
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -62,7 +62,7 @@ function App() {
     }
   
     try {
-      const res = await axios.post("http://localhost:5000/add", formData, {
+      const res = await axios.post("https://bamboo-uvai.onrender.com/add", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
   
@@ -191,7 +191,7 @@ function App() {
                 </td>
                 <td>
                   <img
-                    src={`http://localhost:5000/qrcodes/product_${p.id}.png`}
+                    src={`https://bamboo-uvai.onrender.com/qrcodes/product_${p.id}.png`}
                     alt="QR Code"
                     width="80"
                   />
