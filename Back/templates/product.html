@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #dce35b, #45b649);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image-container {
+            flex: 1 1 300px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+        .details {
+            flex: 1 1 400px;
+            padding: 30px;
+        }
+        .details h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .details th, .details td {
+            text-align: left;
+            padding: 10px;
+        }
+        .details th {
+            color: #555;
+            width: 40%;
+        }
+        .details td {
+            color: #222;
+        }
+        .details a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .details a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex-direction: column;
+            }
+            .details {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- ✅ Replace 'your-image.png' with actual image filename -->
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/product_' ~ product['id'] ~ '.png') }}"
+     alt="Product Image" />
+
+        </div>
+        <div class="details">
+            <h1>Product Details</h1>
+            <table>
+                <tr><th>Product ID</th><td>{{product.id}}</td></tr>
+                <tr><th>Artist</th><td>{{ product.artist }}</td></tr>
+                <tr><th>Origin</th><td>{{ product.origin }}</td></tr>
+                <tr><th>Description</th><td>{{ product.about }}</td></tr>
+                <tr><th>Price</th><td>${{ product.price }}</td></tr>
+                <tr><th>Words of Artist</th><td>{{ product.value }}</td></tr>
+                <tr><th>Date of Manufacturing</th><td>{{ product.dom }}</td></tr>
+                <tr><th>Category</th><td>{{ product.category }}</td></tr>
+                <tr><th>Link</th><td><a href="{{ product.link }}" target="_blank">Buy Now</a></td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
