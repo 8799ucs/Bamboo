@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 UPLOAD_FOLDER = "static/images"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
-BASE_URL = os.getenv("BASE_URL", "http://localhost:5000")
+BASE_URL = "https://bamboo-products.vercel.app"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
