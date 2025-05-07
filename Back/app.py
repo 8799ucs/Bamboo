@@ -81,7 +81,7 @@ def add_product():
         return jsonify({"error": "Database error, unable to store product."}), 500
 
     # Generate QR Code
-    product_url = f"{BASE_URL}/product/{product_id}"
+    product_url = f"https://bamboo-products.vercel.app/product/{product_id}"
     qr_img = qrcode.make(product_url)
     qr_path = f"qrcodes/product_{product_id}.png"
     qr_img.save(qr_path)
