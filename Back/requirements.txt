@@ -138,7 +138,6 @@ intel-openmp==2021.4.0
 ipfs-api==0.2.3
 IPFS-Toolkit==0.5.23
 ipfsapi==0.4.4
-ipfshttpclient @ file:///C:/Users/LENOVO/Documents/py-ipfs-http-client
 ipyevents==2.0.2
 ipyfilechooser==0.6.0
 ipykernel==6.29.4
