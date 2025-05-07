@@ -129,7 +129,7 @@ def delete_product(product_id):
 
     return jsonify({'message': 'Product deleted successfully'}), 200
 
-@app.route("/product/<product_id>")
+@app.route("/product/<product_id>", methods=['GET'])
 def show_product(product_id):
     with sqlite3.connect(DB) as conn:
         conn.row_factory = sqlite3.Row
